@@ -1,0 +1,50 @@
+page {
+  /*全局通用的CSS变量  */
+  --text-color: #707070;
+  --text-secondary-color: #c8c9cc;
+  --border-color: #eee;
+  --my-user-info-color: #fff;
+  --main-color: #54565a;
+  --nav-bg-color: #54565a;
+  --custom-active-color: #d70039;
+  --service-item-color: #d70039;
+
+
+  /* vant 通用样式覆盖 */
+  --action-sheet-item-font-size: 36rpx;
+  --action-sheet-item-line-height: 60rpx;
+  --font-size-md: 36rpx;
+  --nav-bar-title-font-size: 38rpx;
+  --nav-bar-height: 100rpx;
+  --picker-toolbar-height: 100rpx;
+  --picker-action-font-size: 38rpx;
+  --picker-option-font-size: 38rpx;
+  --picker-confirm-action-color: var(--custom-active-color);
+  --cell-vertical-padding: 20rpx;
+  --cell-horizontal-padding: 32rpx;
+  --cell-font-size: 32rpx;
+  --cell-line-height: 60rpx;
+  --cell-icon-size: 40rpx;
+  --field-icon-size: 40rpx;
+  --field-clear-icon-size: 40rpx;
+  --field-error-message-text-font-size: 28rpx;
+  --padding-base: 10rpx;
+  --padding-md: 30rpx;
+  --padding-xs: 18rpx;
+  --uploader-icon-size: 44rpx;
+  --tabbar-height: 100rpx;
+  --tabbar-item-font-size: 26rpx;
+  --tabbar-item-icon-size: 44rpx;
+  --tabbar-item-margin-bottom: 8rpx;
+  --tabbar-height: 100rpx;
+  --tabbar-item-font-size: 26rpx;
+  --tabbar-item-icon-size: 44rpx;
+  --tabbar-item-margin-bottom: 8rpx;
+  --sidebar-width: 210rpx;
+  --sidebar-font-size: 32rpx;
+  --sidebar-padding: 30rpx 20rpx;
+  --sidebar-selected-border-color: var(--custom-active-color);
+  --tab-font-size: 30rpx;
+  --tabs-line-height: 86rpx;
+  --tabs-bottom-bar-height: 6rpx;
+}

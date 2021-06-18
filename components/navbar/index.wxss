@@ -1,0 +1,25 @@
+/* css 变量用于覆盖 vant组件默认的样式 */
+@import "/app.wxss";
+
+.my-navbar {
+  /* background: url(https://kite1874.com/nav_bg.jpg) no-repeat center center; */
+  background: var(--nav-bg-color) no-repeat !important;
+  background-size: 200% !important;
+  background-position: 50% 0rpx !important;
+  --nav-bar-background-color: #fff0;
+  --nav-bar-icon-color: #fff;
+  --nav-bar-text-color: #fff;
+  --nav-bar-arrow-size: 40rpx;
+  --nav-bar-title-text-color: #fff;
+  --nav-bar-height: 100rpx;
+  --nav-bar-title-font-size: 38rpx;
+  z-index: 9999 !important;
+}
+
+.my-navbar::after {
+  border: none !important;
+}
+
+/* .my-navbar-title {
+  color: #fff;
+} */

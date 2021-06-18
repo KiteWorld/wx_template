@@ -1,0 +1,21 @@
+<navbar navConfig="{{navConfig}}" />
+<view>
+  <text>枚举值演示：{{status}}</text>
+</view>
+<view>
+  全局混入：{{title1}}
+</view>
+<view>
+  局部混入：{{title2}}
+</view>
+
+<view>
+  iconfont：
+  <text class="iconfont icon-fengzheng"></text>
+</view>
+
+
+<view class="flex_r_v">
+  <text>演示导航栏，返回上页功能：</text>
+  <navigator url="/pages/detail/index" class="btn">跳转到详细页</navigator>
+</view>

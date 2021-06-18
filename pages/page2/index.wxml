@@ -1,0 +1,2 @@
+<navbar navConfig="{{navConfig}}" />
+<text>pages/page1/index.wxml</text>

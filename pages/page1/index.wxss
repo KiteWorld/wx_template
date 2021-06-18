@@ -1,0 +1,13 @@
+/* pages/page1/index.wxss */
+.btn {
+  width: 250rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  /* CSS变量的使用 */
+  border: 1rpx solid var(--border-color); 
+  color: var(--text-color);
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}

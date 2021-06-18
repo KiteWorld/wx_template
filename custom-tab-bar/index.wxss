@@ -1,0 +1,6 @@
+.my-tabbar {
+  --tabbar-height: 100rpx;
+  --tabbar-item-font-size: 26rpx;
+  --tabbar-item-icon-size: 44rpx;
+  --tabbar-item-margin-bottom: 8rpx
+}

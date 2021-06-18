@@ -1,0 +1,7 @@
+<!-- navbar  -->
+<van-nav-bar title="{{navConfig.title}}" left-arrow="{{navConfig.isLeftArrow}}"
+  right-arrow="{{navConfig.isRightArrow}}" bind:click-left="onClickLeft" bind:click-right="onClickRight"
+  custom-class="my-navbar" title-class="my-navbar-title" left-text="{{navConfig.leftText}}" fixed>
+  <van-icon name="{{navConfig.slot.iconName}}" slot="{{navConfig.slot.type}}" v-if="{{navConfig.slot}}" />
+</van-nav-bar>
+<view class="navbar-fit" style="height: calc(100rpx + {{navH}}px + {{addHeight}}rpx)"></view>
