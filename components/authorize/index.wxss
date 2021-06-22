@@ -1,0 +1,18 @@
+@import "../../app.wxss";
+
+.tips-content {
+  color: #444444;
+  padding: 40rpx 10rpx 40rpx 20rpx;
+}
+
+.auth-btn {
+  width: 500rpx !important;
+  margin-top: 10rpx;
+}
+
+.tips {
+  text-align: center;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  color: var(--text-color);
+}

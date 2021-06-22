@@ -1,0 +1,14 @@
+<van-dialog use-slot show="{{ showAuth }}" showConfirmButton="{{false}}" zIndex="99999">
+  <view class="tips-content flex_c_hv">
+    <van-button plain icon="wechat" type="primary" custom-class="auth-btn" loading="{{loading}}"
+      bind:click="getUserProfile" wx:if="{{type==='UserInfo'}}">
+      微信授权登录
+    </van-button>
+    <van-button plain icon="phone-o" type="info" custom-class="auth-btn" loading="{{loading}}"
+      open-type="getPhoneNumber" bind:getphonenumber="getPhoneNumber" wx:else>获取手机号进行绑定
+    </van-button>
+    <van-button plain custom-class="auth-btn" bind:click="onCancel">取消
+    </van-button>
+  </view>
+  <view class="tips">用户信息仅用于同步售后产品信息</view>
+</van-dialog>
