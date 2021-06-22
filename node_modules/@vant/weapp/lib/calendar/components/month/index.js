@@ -31,10 +31,6 @@ component_1.VantComponent({
       type: null,
       observer: 'setDays',
     },
-    firstDayOfWeek: {
-      type: Number,
-      observer: 'setDays',
-    },
     allowSameDay: Boolean,
     showSubtitle: Boolean,
     showMonthTitle: Boolean,
@@ -106,12 +102,12 @@ component_1.VantComponent({
         currentDate = _a.currentDate,
         allowSameDay = _a.allowSameDay;
       if (!Array.isArray(currentDate)) {
-        return '';
+        return;
       }
       var startDay = currentDate[0],
         endDay = currentDate[1];
       if (!startDay) {
-        return '';
+        return;
       }
       var compareToStart = utils_1.compareDay(day, startDay);
       if (!endDay) {
@@ -130,7 +126,6 @@ component_1.VantComponent({
       if (compareToStart > 0 && compareToEnd < 0) {
         return 'middle';
       }
-      return '';
     },
     getDayType: function (day) {
       var _a = this.data,
@@ -154,7 +149,6 @@ component_1.VantComponent({
       if (type === 'range') {
         return this.getRangeDayType(day);
       }
-      return '';
     },
     getBottomInfo: function (type) {
       if (this.data.type === 'range') {

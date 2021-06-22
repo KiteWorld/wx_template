@@ -28,7 +28,8 @@
     ]
   },
   "usingComponents": {
-    "navbar": "/components/navbar/index"
+    "navbar": "/components/navbar/index",
+    "van-button": "@vant/weapp/button/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

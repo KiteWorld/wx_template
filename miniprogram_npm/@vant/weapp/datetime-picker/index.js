@@ -14,12 +14,15 @@ var __assign =
       };
     return __assign.apply(this, arguments);
   };
-var __spreadArray =
-  (this && this.__spreadArray) ||
-  function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-      to[j] = from[i];
-    return to;
+var __spreadArrays =
+  (this && this.__spreadArrays) ||
+  function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++)
+      s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+      for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+        r[k] = a[j];
+    return r;
   };
 Object.defineProperty(exports, '__esModule', { value: true });
 var component_1 = require('../common/component');
@@ -120,11 +123,13 @@ component_1.VantComponent({
       var data = this.data;
       var val = this.correctValue(data.value);
       var isEqual = val === data.innerValue;
-      this.updateColumnValue(val).then(function () {
-        if (!isEqual) {
+      if (!isEqual) {
+        this.updateColumnValue(val).then(function () {
           _this.$emit('input', val);
-        }
-      });
+        });
+      } else {
+        this.updateColumns();
+      }
     },
     getPicker: function () {
       if (this.picker == null) {
@@ -138,7 +143,7 @@ component_1.VantComponent({
           }
           return setColumnValues_1.apply(
             picker_1,
-            __spreadArray(__spreadArray([], args), [false])
+            __spreadArrays(args, [false])
           );
         };
       }
@@ -163,7 +168,8 @@ component_1.VantComponent({
           range = _a.range;
         var values = times(range[1] - range[0] + 1, function (index) {
           var value = range[0] + index;
-          return type === 'year' ? '' + value : padZero(value);
+          value = type === 'year' ? '' + value : padZero(value);
+          return value;
         });
         if (filter) {
           values = filter(type, values);

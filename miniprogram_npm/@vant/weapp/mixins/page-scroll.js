@@ -12,7 +12,7 @@ function onPageScroll(event) {
     }
   });
 }
-var pageScrollMixin = function (scroller) {
+exports.pageScrollMixin = function (scroller) {
   return Behavior({
     attached: function () {
       var page = utils_1.getCurrentPage();
@@ -38,4 +38,3 @@ var pageScrollMixin = function (scroller) {
     },
   });
 };
-exports.pageScrollMixin = pageScrollMixin;

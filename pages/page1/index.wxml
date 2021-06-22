@@ -10,12 +10,16 @@
 </view>
 
 <view>
-  iconfont：
+  iconfont使用：
   <text class="iconfont icon-fengzheng"></text>
 </view>
-
 
 <view class="flex_r_v">
   <text>演示导航栏，返回上页功能：</text>
   <navigator url="/pages/detail/index" class="btn">跳转到详细页</navigator>
 </view>
+
+<view class="flex_r_v">
+  <van-button bind:click="authLogin">点击授权登录</van-button>
+</view>
+<authorize type="{{authType}}" showAuth="{{showAuth}}" />

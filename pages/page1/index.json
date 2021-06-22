@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "authorize": "/components/authorize/index"
   }
 }

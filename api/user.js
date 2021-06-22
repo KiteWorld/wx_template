@@ -7,10 +7,6 @@ export function login(code, data) {
     noAuth: true
   });
 }
-//获取小程序配置信息
-export function getAppID(appid, data = {}) {
-  return request.post(`infos/${appid}`, data);
-}
 
 //更新用户信息
 export function updateUserInfo(data) {

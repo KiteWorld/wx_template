@@ -5,6 +5,10 @@ import {
   mixin2
 } from "../../common/globalMixin"
 
+import {
+  authLogin
+} from "../../utils/authLogin.js"
+
 Page({
   //局部 mixin
   mixins: [mixin2],
@@ -13,7 +17,9 @@ Page({
       title: "page1",
       isLeftArrow: false
     },
-    status: ""
+    status: "",
+    authType: "getPhoneNumber",
+    showAuth: true
   },
 
   onLoad: function (options) {
@@ -26,10 +32,13 @@ Page({
     this.setData({
       status: STATUS[status]
     })
+    this.authLogin(this)
   },
   onReady: function () {},
   onShow: function () {
     //初始化tabbar  
     this.getTabBar().init()
   },
+  authLogin: authLogin,
+
 })

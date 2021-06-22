@@ -96,21 +96,18 @@ component_1.VantComponent({
     },
     onChange: function (event) {
       var _this = this;
-      var _a;
-      var _b = event.detail,
-        index = _b.index,
-        picker = _b.picker,
-        value = _b.value;
+      var _a = event.detail,
+        index = _a.index,
+        picker = _a.picker,
+        value = _a.value;
       this.code = value[index].code;
-      (_a = this.setValues()) === null || _a === void 0
-        ? void 0
-        : _a.then(function () {
-            _this.$emit('change', {
-              picker: picker,
-              values: _this.parseValues(picker.getValues()),
-              index: index,
-            });
-          });
+      this.setValues().then(function () {
+        _this.$emit('change', {
+          picker: picker,
+          values: _this.parseValues(picker.getValues()),
+          index: index,
+        });
+      });
     },
     getConfig: function (type) {
       var areaList = this.data.areaList;

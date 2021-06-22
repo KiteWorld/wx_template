@@ -49,12 +49,11 @@ component_1.VantComponent({
   methods: {
     onScroll: function (_a) {
       var _this = this;
-      var _b = _a === void 0 ? {} : _a,
-        scrollTop = _b.scrollTop;
-      var _c = this.data,
-        container = _c.container,
-        offsetTop = _c.offsetTop,
-        disabled = _c.disabled;
+      var scrollTop = (_a === void 0 ? {} : _a).scrollTop;
+      var _b = this.data,
+        container = _b.container,
+        offsetTop = _b.offsetTop,
+        disabled = _b.disabled;
       if (disabled) {
         this.setDataAfterDiff({
           fixed: false,

@@ -1,5 +1,5 @@
-@import "/fonts/iconfont.wxss";
 @import "/css/variables.wxss";
+@import "/fonts/iconfont.wxss";
 
 page {
   font-size: 32rpx;

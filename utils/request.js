@@ -5,6 +5,14 @@ import {
   HTTP_REQUEST_URL,
 } from './../config.js';
 
+/*
+  api：Stirng 接口URL
+  method ：Stirng 请求方法 ：get post
+  data：Object  请求数据
+  noAuth: Boolean true，不需要携带 token; false,反之
+  customHeader：自定义请求头（覆盖默认的）
+  baseURL: 覆盖默认的 baseURL
+*/
 export default function request(api, method, data, {
   noAuth = false,
   customHeader = null,

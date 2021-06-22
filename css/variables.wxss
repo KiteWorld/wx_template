@@ -10,7 +10,7 @@ page {
   --service-item-color: #d70039;
 
 
-  /* vant 通用样式覆盖 */
+  /* vant 通用样式覆盖，根据需要进行调整 */
   --action-sheet-item-font-size: 36rpx;
   --action-sheet-item-line-height: 60rpx;
   --font-size-md: 36rpx;
@@ -47,4 +47,5 @@ page {
   --tab-font-size: 30rpx;
   --tabs-line-height: 86rpx;
   --tabs-bottom-bar-height: 6rpx;
+  --dialog-width: 80%;
 }

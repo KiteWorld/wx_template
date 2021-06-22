@@ -180,14 +180,10 @@ component_1.VantComponent({
       this.currentValue = this.currentValue || 0;
       this.interval = setInterval(function () {
         if (_this.currentValue !== value) {
-          if (Math.abs(_this.currentValue - value) < STEP) {
-            _this.currentValue = value;
+          if (_this.currentValue < value) {
+            _this.currentValue += STEP;
           } else {
-            if (_this.currentValue < value) {
-              _this.currentValue += STEP;
-            } else {
-              _this.currentValue -= STEP;
-            }
+            _this.currentValue -= STEP;
           }
           _this.drawCircle(_this.currentValue);
         } else {

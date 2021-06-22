@@ -2,8 +2,9 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 var component_1 = require('../common/component');
 var button_1 = require('../mixins/button');
+var open_type_1 = require('../mixins/open-type');
 component_1.VantComponent({
-  mixins: [button_1.button],
+  mixins: [button_1.button, open_type_1.openType],
   props: {
     show: Boolean,
     title: String,
@@ -40,25 +41,12 @@ component_1.VantComponent({
   },
   methods: {
     onSelect: function (event) {
-      var _this = this;
       var index = event.currentTarget.dataset.index;
-      var _a = this.data,
-        actions = _a.actions,
-        closeOnClickAction = _a.closeOnClickAction,
-        canIUseGetUserProfile = _a.canIUseGetUserProfile;
-      var item = actions[index];
-      if (item) {
+      var item = this.data.actions[index];
+      if (item && !item.disabled && !item.loading) {
         this.$emit('select', item);
-        if (closeOnClickAction) {
+        if (this.data.closeOnClickAction) {
           this.onClose();
-        }
-        if (item.openType === 'getUserInfo' && canIUseGetUserProfile) {
-          wx.getUserProfile({
-            desc: item.getUserProfileDesc || '  ',
-            complete: function (userProfile) {
-              _this.$emit('getuserinfo', userProfile);
-            },
-          });
         }
       }
     },

@@ -1,8 +1,12 @@
 {
   "name": "wx_template",
   "version": "1.0.0",
-  "description": "wx_tempalte by Kite1874",
+  "description": "wx_template",
   "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.6.8"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,13 +17,10 @@
   "keywords": [
     "wx_template"
   ],
-  "author": "kite1874",
+  "author": "kiteWorld",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/KiteWorld/wx_template/issues"
   },
-  "homepage": "https://github.com/KiteWorld/wx_template#readme",
-  "dependencies": {
-    "@vant/weapp": "^1.6.9"
-  }
+  "homepage": "https://github.com/KiteWorld/wx_template#readme"
 }

@@ -2,8 +2,9 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 var component_1 = require('../common/component');
 var button_1 = require('../mixins/button');
+var open_type_1 = require('../mixins/open-type');
 component_1.VantComponent({
-  mixins: [button_1.button],
+  mixins: [button_1.button, open_type_1.openType],
   classes: ['custom-class', 'loading-class', 'error-class', 'image-class'],
   props: {
     src: {

@@ -40,9 +40,6 @@ component_1.VantComponent({
       type: null,
       value: 0,
       observer: function (name) {
-        if (!this.skipInit) {
-          this.skipInit = true;
-        }
         if (name !== this.getCurrentName()) {
           this.setCurrentIndexByName(name);
         }
@@ -89,7 +86,6 @@ component_1.VantComponent({
     currentIndex: 0,
     container: null,
     skipTransition: true,
-    scrollWithAnimation: false,
     lineOffsetLeft: 0,
   },
   mounted: function () {
@@ -100,10 +96,8 @@ component_1.VantComponent({
           return _this.createSelectorQuery().select('.van-tabs');
         },
       });
-      if (!_this.skipInit) {
-        _this.resize();
-        _this.scrollIntoView();
-      }
+      _this.resize(true);
+      _this.scrollIntoView();
     });
   },
   methods: {
@@ -183,11 +177,9 @@ component_1.VantComponent({
       }
       var shouldEmitChange = data.currentIndex !== null;
       this.setData({ currentIndex: currentIndex });
-      utils_1.requestAnimationFrame(function () {
+      utils_1.nextTick(function () {
         _this.resize();
         _this.scrollIntoView();
-      });
-      utils_1.nextTick(function () {
         _this.trigger('input');
         if (shouldEmitChange) {
           _this.trigger('change');
@@ -200,15 +192,17 @@ component_1.VantComponent({
         return activeTab.getComputedName();
       }
     },
-    resize: function () {
+    resize: function (skipTransition) {
       var _this = this;
+      if (skipTransition === void 0) {
+        skipTransition = false;
+      }
       if (this.data.type !== 'line') {
         return;
       }
       var _a = this.data,
         currentIndex = _a.currentIndex,
-        ellipsis = _a.ellipsis,
-        skipTransition = _a.skipTransition;
+        ellipsis = _a.ellipsis;
       Promise.all([
         utils_1.getAllRect(this, '.van-tab'),
         utils_1.getRect(this, '.van-tabs__line'),
@@ -227,12 +221,10 @@ component_1.VantComponent({
           }, 0);
         lineOffsetLeft +=
           (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8);
-        _this.setData({ lineOffsetLeft: lineOffsetLeft });
-        if (skipTransition) {
-          utils_1.nextTick(function () {
-            _this.setData({ skipTransition: false });
-          });
-        }
+        _this.setData({
+          lineOffsetLeft: lineOffsetLeft,
+          skipTransition: skipTransition,
+        });
       });
     },
     // scroll active tab into view
@@ -240,8 +232,7 @@ component_1.VantComponent({
       var _this = this;
       var _a = this.data,
         currentIndex = _a.currentIndex,
-        scrollable = _a.scrollable,
-        scrollWithAnimation = _a.scrollWithAnimation;
+        scrollable = _a.scrollable;
       if (!scrollable) {
         return;
       }
@@ -260,11 +251,6 @@ component_1.VantComponent({
         _this.setData({
           scrollLeft: offsetLeft - (navRect.width - tabRect.width) / 2,
         });
-        if (!scrollWithAnimation) {
-          utils_1.nextTick(function () {
-            _this.setData({ scrollWithAnimation: true });
-          });
-        }
       });
     },
     onTouchScroll: function (event) {

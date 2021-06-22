@@ -2,10 +2,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 var component_1 = require('../common/component');
 var button_1 = require('../mixins/button');
+var open_type_1 = require('../mixins/open-type');
 var color_1 = require('../common/color');
 var utils_1 = require('../common/utils');
 component_1.VantComponent({
-  mixins: [button_1.button],
+  mixins: [button_1.button, open_type_1.openType],
   props: {
     show: {
       type: Boolean,

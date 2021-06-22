@@ -7,5 +7,6 @@ component_1.VantComponent({
     desc: String,
     title: String,
     status: String,
+    useFooterSlot: Boolean,
   },
 });

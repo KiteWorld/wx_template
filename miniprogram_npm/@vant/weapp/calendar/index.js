@@ -1,10 +1,13 @@
 'use strict';
-var __spreadArray =
-  (this && this.__spreadArray) ||
-  function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-      to[j] = from[i];
-    return to;
+var __spreadArrays =
+  (this && this.__spreadArrays) ||
+  function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++)
+      s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+      for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+        r[k] = a[j];
+    return r;
   };
 var __importDefault =
   (this && this.__importDefault) ||
@@ -38,10 +41,6 @@ component_1.VantComponent({
       value: '确定',
     },
     rangePrompt: String,
-    showRangePrompt: {
-      type: Boolean,
-      value: true,
-    },
     defaultDate: {
       type: null,
       observer: function (val) {
@@ -111,10 +110,6 @@ component_1.VantComponent({
     maxRange: {
       type: null,
       value: null,
-    },
-    firstDayOfWeek: {
-      type: Number,
-      value: 0,
     },
   },
   data: {
@@ -254,7 +249,7 @@ component_1.VantComponent({
           this.unselect(cancelDate);
         } else {
           // @ts-ignore
-          this.select(__spreadArray(__spreadArray([], currentDate), [date]));
+          this.select(__spreadArrays(currentDate, [date]));
         }
       } else {
         this.select(date, true);
@@ -299,21 +294,16 @@ component_1.VantComponent({
     checkRange: function (date) {
       var _a = this.data,
         maxRange = _a.maxRange,
-        rangePrompt = _a.rangePrompt,
-        showRangePrompt = _a.showRangePrompt;
+        rangePrompt = _a.rangePrompt;
       if (maxRange && utils_1.calcDateNum(date) > maxRange) {
-        if (showRangePrompt) {
-          toast_1.default({
-            duration: 0,
-            context: this,
-            message:
-              rangePrompt ||
-              '\u9009\u62E9\u5929\u6570\u4E0D\u80FD\u8D85\u8FC7 ' +
-                maxRange +
-                ' \u5929',
-          });
-        }
-        this.$emit('over-range');
+        toast_1.default({
+          context: this,
+          message:
+            rangePrompt ||
+            '\u9009\u62E9\u5929\u6570\u4E0D\u80FD\u8D85\u8FC7 ' +
+              maxRange +
+              ' \u5929',
+        });
         return false;
       }
       return true;

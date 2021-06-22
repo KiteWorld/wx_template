@@ -27,10 +27,13 @@ component_1.VantComponent({
     },
     speed: {
       type: Number,
-      value: 60,
+      value: 50,
       observer: 'init',
     },
-    scrollable: null,
+    scrollable: {
+      type: Boolean,
+      value: true,
+    },
     leftIcon: {
       type: String,
       value: '',
@@ -65,22 +68,20 @@ component_1.VantComponent({
         ]).then(function (rects) {
           var contentRect = rects[0],
             wrapRect = rects[1];
-          var _a = _this.data,
-            speed = _a.speed,
-            scrollable = _a.scrollable,
-            delay = _a.delay;
           if (
             contentRect == null ||
             wrapRect == null ||
             !contentRect.width ||
-            !wrapRect.width ||
-            scrollable === false
+            !wrapRect.width
           ) {
             return;
           }
+          var _a = _this.data,
+            speed = _a.speed,
+            scrollable = _a.scrollable,
+            delay = _a.delay;
           if (scrollable || wrapRect.width < contentRect.width) {
-            var duration =
-              ((wrapRect.width + contentRect.width) / speed) * 1000;
+            var duration = (contentRect.width / speed) * 1000;
             _this.wrapWidth = wrapRect.width;
             _this.contentWidth = contentRect.width;
             _this.duration = duration;
