@@ -1,5 +1,7 @@
 微信小程序通用项目模板——「提高效率，~~安心摸鱼~~专注于业务逻辑」
 
+模板特点：vant-weapp、自定义导航栏、自定 tabbar、自定义mixin混入、全局样式、请求接口二次封装（request.js）、枚举（emun.js）、添加地址模板三种方式（省市区联动、地图选点、智能识别）等等
+
 ## 项目启动
 
 - 安装依赖
@@ -50,25 +52,16 @@ wx_template
 ├─ package-lock.json                                               
 ├─ package.json                                                     
 ├─ pages                        // 页面（用于演示）
-│  ├─ detail                                                       
-│  │  ├─ index.js                                                  
-│  │  ├─ index.json                                                
-│  │  ├─ index.wxml                                                
-│  │  └─ index.wxss                                                
-│  ├─ page1                                                        
-│  │  ├─ index.js                                                  
-│  │  ├─ index.json                                                
-│  │  ├─ index.wxml                                                
-│  │  └─ index.wxss                                                
-│  └─ page2                                                        
-│     ├─ index.js                                                  
-│     ├─ index.json                                                
-│     ├─ index.wxml                                                
-│     └─ index.wxss                                                
+│  ├─ index                                                       
+│  ├─ index.js                                                  
+│  ├─ index.json                                                
+│  ├─ index.wxml                                                
+│  └─ index.wxss                                                                                             
 ├─ project.config.json          // 项目配置，对应小程序开发者工具，右侧的勾选项
 ├─ README.md                                                       
 ├─ sitemap.json                                                    
-└─ utils                                                           
+└─ utils
+   ├─ smartWeChat               // 智能识别地址                                                       
    ├─ authLogin.js              // 登录校验逻辑 
    ├─ mixin.js                  // 使小程序页面也具备类似于 vue 的 mixin(混入) 功能
    ├─ request.js                // 请求的统一处理，例如：携带token、token校验、异常处理等

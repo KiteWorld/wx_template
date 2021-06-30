@@ -4,6 +4,8 @@ module.exports = {
 
   //测试环境
   HTTP_REQUEST_URL: 'https://kite1874.com/api/',
+  
+  // 腾讯位置服务 Key
   MAP_KEY:"VP4BZ-MPBCU-LQFVU-BXR22-CFNTS-WLFZN",
 
   // 请求头
