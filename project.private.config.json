@@ -1,0 +1,48 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/map/index",
+          "pathName": "pages/map/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/address-detail_1/index",
+          "pathName": "pages/address-detail_1/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/address-detail_2/index",
+          "pathName": "pages/address-detail_2/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/address-detail_3/index",
+          "pathName": "pages/address-detail_3/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

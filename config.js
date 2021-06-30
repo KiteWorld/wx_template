@@ -1,9 +1,10 @@
 module.exports = {
   //开发环境
-  HTTP_REQUEST_URL: 'https://ass.jceee.com/aftersale/api/mp/',
-  //测试环境
-  HTTP_REQUEST_URL: 'https://cssuat.lh-home.com.cn/aftersale/api/mp/',
+  HTTP_REQUEST_URL: 'https://kite1874.com/dev/api/',
 
+  //测试环境
+  HTTP_REQUEST_URL: 'https://kite1874.com/api/',
+  MAP_KEY:"VP4BZ-MPBCU-LQFVU-BXR22-CFNTS-WLFZN",
 
   // 请求头
   HEADER: {

@@ -1,0 +1,34 @@
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <navbar navConfig="{{navConfig}}" />
+
+  <!-- 搜索组件 -->
+  <van-search value="{{ addressInput }}" shape="round" placeholder="请输入搜索关键词" use-left-icon-slot
+    bind:change="nearby_search">
+    <view class="cityName ellipsis_1" slot="left-icon" bindtap="toSelectCity">{{cityName}}</view>
+  </van-search>
+
+  <!--地图容器-->
+  <map id="myMap" style="width:100%;height:450rpx;" longitude="{{longitude}}" latitude="{{latitude}}" scale="15"
+    bindregionchange="mapChange">
+    <cover-view class="map-prompt">您可拖动地图, 标记准确位置</cover-view>
+    <cover-image class="current-site-icon" src="../../images/marker.png"></cover-image>
+    <cover-view class="reload" bindtap="reload">
+      <cover-view class="center1">
+        <cover-view class="center2"></cover-view>
+      </cover-view>
+    </cover-view>
+  </map>
+  
+  <!-- 地点列表 -->
+  <scroll-view class="scroll" bindscrolltolower="loadLocation" scroll-y lower-threshold="100">
+    <view class="near-item" wx:for="{{nearList}}" wx:key="index" id="{{index}}" bindtap="chooseCenter">
+      <van-icon name="location-o" custom-class="current-site" color="{{activeColor}}" wx:if="{{index == selectedId}}" />
+      <van-icon name="location-o" custom-class="current-site" wx:else />
+      <view class="item-main ellipsis_1">
+        <view class="title {{ index == selectedId?'activeTitle':'' }}">{{item.title}}</view>
+        <view class="address {{ index == selectedId?'activeAddress':'' }}">{{item.addr}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

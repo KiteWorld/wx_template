@@ -1,0 +1,90 @@
+@import '/app.wxss';
+
+.smart-address-container {
+  background: #fff;
+}
+
+.form-container {
+  --cell-horizontal-padding: 30rpx;
+  --padding-xs: 18rpx
+}
+
+.smart-address-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #aaaaaa;
+}
+
+.smart-input-root .van-cell__value {
+  font-size: 32rpx;
+  background: #eee !important;
+  border-radius: 10rpx !important;
+  overflow: hidden !important;
+}
+
+.smart-input {
+  height: 300rpx !important;
+  background: #eee !important;
+  padding: 20rpx !important;
+  border-radius: 10rpx !important;
+
+}
+
+.smart-address {
+  display: flex;
+  flex-direction: column;
+
+  /* justify-content: flex-end; */
+
+}
+
+.smart-address-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10rpx;
+}
+
+.smart-address-btn view {
+  font-size: 32rpx;
+  padding: 6rpx 10rpx;
+  width: 100rpx;
+  text-align: center;
+  border-radius: 999em;
+}
+
+.smart-address-btn view:nth-child(1) {
+  border: 1rpx solid #aaaaaa;
+  color: #aaaaaa;
+}
+
+.smart-address-btn view:nth-child(2) {
+  width: 150rpx;
+  margin: 0 20rpx;
+  background: var(--main-color);
+  color: #fff;
+}
+
+.save-btn,
+.del-btn {
+  width: 80%;
+  margin: 40rpx auto 0rpx;
+  border-radius: 999em;
+  padding: 16rpx 0;
+  font-size: 36rpx;
+  text-align: center;
+  background: var(--main-color);
+  color: #fff;
+}
+
+.del-btn {
+  background: #cfcfcf;
+  color: #949494;
+}
+
+.btn-contianer {
+  margin-top: 60rpx;
+}
+

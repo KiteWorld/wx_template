@@ -1,8 +1,12 @@
 {
   "pages": [
-    "pages/page1/index",
-    "pages/page2/index",
-    "pages/detail/index"
+    "pages/index/index",
+    "pages/my/index",
+    "pages/detail/index",
+    "pages/map/index",
+    "pages/address-detail_1/index",
+    "pages/address-detail_2/index",
+    "pages/address-detail_3/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,20 +20,30 @@
     "color": "#000000",
     "selectedColor": "#2c4999",
     "borderStyle": "white",
-    "list": [
-      {
-        "pagePath": "pages/page1/index",
-        "text": "page1"
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页"
       },
       {
-        "pagePath": "pages/page2/index",
-        "text": "page2"
+        "pagePath": "pages/my/index",
+        "text": "我的"
       }
     ]
   },
   "usingComponents": {
     "navbar": "/components/navbar/index",
     "van-button": "@vant/weapp/button/index"
+  },
+  "plugins": {
+    "citySelector": {
+      "version": "1.0.0",
+      "provider": "wx63ffb7b7894e99ae"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

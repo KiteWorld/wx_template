@@ -3,6 +3,8 @@ import "./utils/mixin"
 import {
   mixin1
 } from "./common/globalMixin"
+import address_parse from "./utils/smartWeChat/js/address_parse"
+
 App({
   onLaunch() {
     wx.getSystemInfo({
@@ -35,6 +37,12 @@ App({
         title: "更新版本失败"
       })
     })
+  },
+  smart: function (val) {
+    return address_parse.method(val || '')
+  },
+  getAddressData: function () { //手动重新挂载数据
+    address_parse.getData()
   },
   globalData: {
     userInfo: null,

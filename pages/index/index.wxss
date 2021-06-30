@@ -1,5 +1,6 @@
 /* pages/page1/index.wxss */
 .btn {
+  display: inline-block;
   width: 250rpx;
   height: 100rpx;
   text-align: center;

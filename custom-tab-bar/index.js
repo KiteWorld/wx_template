@@ -7,12 +7,12 @@ Component({
   data: {
     selected: 0,
     "list": [{
-        "url": "/pages/page1/index",
+        "url": "/pages/index/index",
         "icon": "wap-home-o",
         "text": "首页"
       },
       {
-        "url": "/pages/page2/index",
+        "url": "/pages/my/index",
         "icon": "user-circle-o",
         "text": "我的"
       }

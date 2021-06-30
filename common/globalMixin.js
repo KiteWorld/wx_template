@@ -1,7 +1,8 @@
 export const mixin1 = {
   data: {
     title1: "mixin1",
-    activeColor: "#fff"
+    activeColor: "#d70039",
+    mainColor: "#707070",
   },
   getTitle1() {
     console.log("getTitle1", this.data.title1)

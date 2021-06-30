@@ -3,7 +3,7 @@
 
 page {
   font-size: 32rpx;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   background: #f5f5f5;
   box-sizing: border-box;
   /* IOS底部安全距离 */
@@ -162,7 +162,7 @@ page {
 .submit {
   --button-normal-font-size: 32rpx;
   --button-default-height: 80rpx;
-  width: 100%;
+  width: 100% !important;
 }
 
 /* 布局通用样式 */

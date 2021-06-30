@@ -1,0 +1,3 @@
+<van-popup show="{{ isShowAreaSelect }}" position="bottom" custom-style="height: 50%" bind:close="closeAreaSelect">
+  <van-area area-list="{{ areaList }}" :columns-num="3" bind:cancel="closeAreaSelect" bind:confirm="confirmArea" value="110000"/> 
+</van-popup>

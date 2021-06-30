@@ -18,7 +18,7 @@ Page({
       isLeftArrow: false
     },
     status: "",
-    authType: "getPhoneNumber",
+    authType: "UserInfo", // 不是 UserInfo 时，显示手机号码授权
     showAuth: true
   },
 
@@ -32,13 +32,16 @@ Page({
     this.setData({
       status: STATUS[status]
     })
-    this.authLogin(this)
+    authLogin(this)
   },
   onReady: function () {},
   onShow: function () {
     //初始化tabbar  
     this.getTabBar().init()
   },
-  authLogin: authLogin,
+  
+  auth() {
+    authLogin(this)
+  },
 
 })

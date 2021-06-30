@@ -1,0 +1,40 @@
+<navbar navConfig="{{navConfig}}" />
+<van-cell-group class="form-container" border="{{ false }}">
+  <van-field value="{{ formData.contactName }}" label="联系人" title-width="4.5em" clearable placeholder="联系人"
+    border="{{ false }}" bind:change="changeContactName" />
+  <van-field value="{{ formData.contactTel }}" label="手机号" title-width="4.5em" type="number" maxlength="{{11}}"
+    error-message="{{phoneNumberError}}" clearable placeholder="手机号" border="{{ false }}"
+    bind:change="changeContactTel" />
+  <van-field value="{{ formData.province + formData.city + formData.county}}" title-width="4.5em" label="所在地区"
+    type="textarea" autosize clearable readonly placeholder="省 / 市 / 区 (只读)" border="{{ false }}" columns-num="{{3}}"
+    bindtap="showAreaSelect" />
+  <van-field value="{{ formData.addressDetail }}" title-width="4.5em" label="服务地址" type="textarea" autosize clearable
+    placeholder="详细地址" border="{{ false }}" bind:change="changeAddressDetail" center />
+</van-cell-group>
+<view class="smart-address-container">
+  <view class="smart-address-title" bindtap="showSmartAddress" hidden="{{isShowSmartAddress}}">
+    <text>智能识别</text>
+    <van-icon name="arrow-down" />
+  </view>
+  <view class="smart-address" hidden="{{!isShowSmartAddress}}">
+    <van-field value="{{ smartAddress }}" center clearable placeholder="输入或粘贴地址信息，如广东省佛山市禅城区南庄镇绿岛广场 Kite 19902824111"
+      border="{{ false }}" use-button-slot type="textarea" input-class="smart-input" class="smart-input-root"
+      bind:change="changeSmartAddress" />
+    <view class="smart-address-btn">
+      <view bindtap="showSmartAddress">取消</view>
+      <view bindtap="insightAddress">智能识别</view>
+    </view>
+  </view>
+</view>
+<view class="btn-contianer">
+  <view class="custom-btn-container">
+    <van-button color="{{activeColor}}" custom-class="submit" bind:click="saveAddress">保存地址</van-button>
+  </view>
+  <view class="custom-btn-container" wx:if="{{formData.addressId}}">
+    <van-button color="{{activeColor}}" custom-class="submit" bind:click="delAddress" plain>删除</van-button>
+  </view>
+</view>
+<view style="text-align:center;font-size:30rpx;color:red">
+  开发者工具无法显示地图！「点击预览」在手机上查看！
+</view>
+<area-select bind:confirm="confirmArea" id="area-select" />

@@ -1,0 +1,39 @@
+<navbar navConfig="{{navConfig}}" />
+<view>
+  <text>枚举值演示：{{status}}</text>
+</view>
+<view>
+  全局混入：{{title1}}
+</view>
+<view>
+  局部混入：{{title2}}
+</view>
+
+<view>
+  iconfont使用：
+  <text class="iconfont icon-fengzheng"></text>
+</view>
+
+<view class="flex_r_v">
+  <text>演示导航栏，返回上页功能：</text>
+  <navigator url="/pages/detail/index" class="btn">跳转到详细页</navigator>
+</view>
+<view class="flex_r_v">
+  <text>演示授权登录：</text>
+  <view bindtap="auth" class="btn">点击授权登录</view>
+</view>
+
+<view class="flex_r_v">
+  <text>省市区联动地址：</text>
+  <navigator url="/pages/address-detail_1/index" class="btn">点击查看</navigator>
+</view>
+<view class="flex_r_v">
+  <text>地图选点地址：</text>
+  <navigator url="/pages/address-detail_2/index" class="btn">点击查看</navigator>
+</view>
+<view class="flex_r_v">
+  <text>智能识别地址：</text>
+  <navigator url="/pages/address-detail_3/index" class="btn">点击查看</navigator>
+</view>
+
+<authorize type="{{authType}}" showAuth="{{showAuth}}" />
