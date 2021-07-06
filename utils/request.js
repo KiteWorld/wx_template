@@ -28,15 +28,16 @@ export default function request(api, method, data, {
       header: header,
       data: data || {},
       success: (res) => {
-        if (res.code === 401) {
+        if (res.statusCode === 401) {
           wx.removeStorageSync(CACHE_TOKEN)
           wx.showToast({
-            title: 'token 已过期,重新加载',
+            type: "loading",
+            title: '超出登录有效期，重新获取中...',
           })
           wx.switchTab({
             url: '/pages/index/index',
           })
-          return
+          reject(null);
         }
         reslove(res.data || null)
       },
