@@ -26,8 +26,13 @@ wx_template
 ├─ common                                                          
 │  ├─ behavior.js               // 组件公用的 behavior 
 │  ├─ emun.js                   // 枚举
-│  └─ globalMixin.js            // 页面公用的 mixin(混入)
-├─ components                                                      
+│  └─ globalMixin.js            // 页面公用的 m1312ixin(混入)
+├─ components                                           
+│  ├─ area-select               // 地区选择组件
+│  │  ├─ index.js      
+│  │  ├─ index.json    
+│  │  ├─ index.wxml    
+│  │  └─ index.wxss            
 │  ├─ authorize                 // 用户信息和手机号码授权组件
 │  │  ├─ index.js                                                  
 │  │  ├─ index.json                                                
@@ -49,24 +54,23 @@ wx_template
 │  └─ index.wxss                                                   
 ├─ fonts                                                           
 │  └─ iconfont.wxss             // iconfont 字体样式
-├─ package-lock.json                                               
-├─ package.json                                                     
 ├─ pages                        // 页面（用于演示）
-│  ├─ index                                                       
-│  ├─ index.js                                                  
-│  ├─ index.json                                                
-│  ├─ index.wxml                                                
-│  └─ index.wxss                                                                                             
+│  ├─ index
+│  ├─ map
+│  ├─ index 
+│  ├─ address-detail_1                                                 
+│  ├─ address-detail_2                                                 
+│  ├─ address-detail_3                                                 
 ├─ project.config.json          // 项目配置，对应小程序开发者工具，右侧的勾选项
-├─ README.md                                                       
 ├─ sitemap.json                                                    
 └─ utils
    ├─ smartWeChat               // 智能识别地址                                                       
    ├─ authLogin.js              // 登录校验逻辑 
    ├─ mixin.js                  // 使小程序页面也具备类似于 vue 的 mixin(混入) 功能
    ├─ request.js                // 请求的统一处理，例如：携带token、token校验、异常处理等
+   ├─ qqmap-wx-jssdk.min.js     // 腾讯地图 sdk
+   ├─ smartWeChat               // 地址只能识别插件            
    └─ utils.js                  // 一些公用的工具函数、如果时间格式化、图片压缩等
-
 ```
 
 ## 项目相关文章：
@@ -74,8 +78,10 @@ wx_template
 掘金：
 - [微信小程序开发那些事 —— 项目前期准备篇](https://juejin.cn/post/6975434044024553503)
 - [微信小程序登录功能的实现以及坑点 —— 前端实现](https://juejin.cn/post/6976455315298451470)
+- [微信小程序添加地址的三种实现方式 —— 省市区联动选择器、地图选点、智能识别地址](https://juejin.cn/post/6979432031961022478)
 
 知乎：
 - [微信小程序开发那些事 —— 项目前期准备篇](https://zhuanlan.zhihu.com/p/382180744)
 - [微信小程序登录功能的实现以及坑点 —— 前端实现](https://zhuanlan.zhihu.com/p/382588175)
+- [微信小程序添加地址的三种实现方式 —— 省市区联动选择器、地图选点、智能识别地址](https://zhuanlan.zhihu.com/p/385354223)
 

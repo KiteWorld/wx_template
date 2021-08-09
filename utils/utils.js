@@ -1,16 +1,9 @@
 import {
   CACHE_TOKEN,
   HTTP_OSS_URL
-}
-from "../config"
-import {
-  getPayParam,
-  getPayId,
-  updateAppointmentStatus
-} from "../api/service.js"
+} from "../config"
 
-import Toast from '../miniprogram_npm/@vant/weapp/toast/toast'
-
+// 格式化时间 YYYY-MM-DD hh:mm:ss
 const dateFomatter = (time, type = 'date') => {
   let timeText = time.getFullYear() + "-" +
     (time.getMonth() + 1).toString().padStart(2, "0") + "-" +
@@ -18,18 +11,19 @@ const dateFomatter = (time, type = 'date') => {
     time.getHours().toString().padStart(2, "0") + ":" +
     time.getMinutes().toString().padStart(2, "0") + ":" +
     time.getSeconds().toString().padStart(2, "0")
-
   return timeText
 
 }
-// 获取当前时间 
+
+// 获取当前年月日 YYYY-MM-DD
 const getNowTime = (time) => {
   return time.getFullYear() + "-" +
     (time.getMonth() + 1).toString().padStart(2, "0") + "-" +
-    time.getDate().toString().padStart(2, "0") + ' ' +
-    time.getHours().toString().padStart(2, "0") + ":"
+    time.getDate().toString().padStart(2, "0")
 }
-//day为返回今天往后的天数
+
+// 数组形式返回，今天往后的day后的天
+//day 为返回今天往后的天数 
 const getDateList = (day) => {
   let dateList = []
   for (let i = 1; i <= day; i++) {
@@ -41,6 +35,7 @@ const getDateList = (day) => {
   return dateList;
 }
 
+// 今天往后的day后的天 ，并格式化 YYYY-MM-DD
 const getDate = (day) => {
   let today = new Date();
   let targetday_milliseconds = today.getTime() + 1000 * 60 * 60 * 24 * (day - today.getDate());
@@ -50,6 +45,8 @@ const getDate = (day) => {
     today.getDate().toString().padStart(2, "0")
   return formatDate
 }
+
+// 返回星期几
 const getWeekList = (dataList) => {
   const weekEum = {
     0: "日",
@@ -100,6 +97,7 @@ const compressImage = async function (instance, canvas, canvasId, url, ratio = 0
             fileType: suffix,
             quality: ratio,
             success: function (res) {
+              // 返回压缩后的图片路径
               resolve(res.tempFilePath)
             },
             fail: function (res) {
@@ -154,88 +152,8 @@ const upload = async function (file, canvas, canvasId, fileType, success) {
   });
 }
 
-const WeChatPay = function (appointmentId, success) {
-  return new Promise(async (resolve, reject) => {
-    wx.showLoading({
-      mask: true
-    })
-    let {
-      code,
-      message,
-      result: payId
-    } = await getPayId(appointmentId)
-    if (code !== 200) {
-      wx.hideLoading()
-      wx.showToast({
-        icon: "none",
-        title: message,
-      })
-      resolve(false)
-      return
-    }
-    if (payId) {
-      let {
-        code,
-        message,
-        result: param
-      } = await getPayParam(payId)
-      if (code !== 200) {
-        wx.hideLoading()
-        wx.showToast({
-          icon: "none",
-          title: message,
-        })
-        resolve(false)
-        return
-      }
-      param.timeStamp = param.timeStamp + ''
-      delete param.appId
-      wx.hideLoading()
-      let paymentResult = await wx.requestPayment(param)
-      if (paymentResult.errMsg !== 'requestPayment:ok') {
-        wx.showToast({
-          icon: "none",
-          title: '支付失败',
-        })
-        resolve(false)
-      } else {
-        wx.showLoading({
-          title: "订单处理中..."
-        })
-        let res = await updateAppointmentStatus(appointmentId, 2)
-        wx.hideLoading()
-        if (res.code === 200) {
-          resolve(true)
-        }
-      }
-    }
-  })
-}
-//下载图片
-// const downLoadPic = async function (attachments) {
-//   let result = []
-//   return new Promise((resolve, reject) => {
-//     const fileUrl = `${HTTP_OSS_URL}download?fileName=${fileName}&filePath=${filePath}&image=true`
-//     wx.downloadFile({
-//       url: fileUrl,
-//       header: {
-//         "X-Access-Token": wx.getStorageSync(CACHE_TOKEN)
-//       },
-//       success: (res) => {
-//         result.push({
-//           url: res.tempFilePath
-//         })
-//       },
-//       fail: (msg) => {
-//         result.push({
-//           url: ""
-//         })
-//       }
-//     })
-//   })
-// }
 
-// 增加前缘触发功能
+// 防抖
 const debounce = (fn, wait, immediate = false) => {
   let timer, startTimeStamp = 0;
   let context, args;
@@ -276,25 +194,6 @@ const debounce = (fn, wait, immediate = false) => {
   }
 
 }
-const toastShow = function (data) {
-  let param;
-  if (!data) {
-
-  }
-  if (data === "success") {
-
-  }
-  if (data === 'fail') {
-    param = {
-      type: "fail",
-    }
-  }
-
-  if (typeof data === 'Object') {
-
-  }
-  Toast(data)
-}
 module.exports = {
   dateFomatter,
   getDateList,
@@ -303,6 +202,5 @@ module.exports = {
   getDate,
   compressImage,
   upload,
-  WeChatPay,
   debounce
 }

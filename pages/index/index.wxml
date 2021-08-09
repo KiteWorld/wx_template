@@ -37,3 +37,7 @@
 </view>
 
 <authorize type="{{authType}}" showAuth="{{showAuth}}" />
+
+<!-- 通过 canvas 进行图片压缩, 配合 compressImage 工具类函数使用 -->
+<canvas id="canvas" canvas-id="canvas"
+  style="position:fixed;bottom:-10000px;width:{{cWidth}}px;height:{{cHeight}}px;"></canvas>

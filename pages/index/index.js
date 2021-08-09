@@ -19,7 +19,9 @@ Page({
     },
     status: "",
     authType: "UserInfo", // 不是 UserInfo 时，显示手机号码授权
-    showAuth: true
+    showAuth: true,
+    cWidth: 100, //设置canvas宽高，进行压缩
+    cHeight: 100,
   },
 
   onLoad: function (options) {
@@ -34,12 +36,12 @@ Page({
     })
     authLogin(this)
   },
-  onReady: function () {},
+  onReady: function () { },
   onShow: function () {
     //初始化tabbar  
     this.getTabBar().init()
   },
-  
+
   auth() {
     authLogin(this)
   },
