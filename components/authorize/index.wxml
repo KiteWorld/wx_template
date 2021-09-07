@@ -10,5 +10,5 @@
     <van-button plain custom-class="auth-btn" bind:click="onCancel">取消
     </van-button>
   </view>
-  <view class="tips">用户信息仅用于同步售后产品信息</view>
+  <view class="tips">用户信息仅用于XXXXX</view>
 </van-dialog>

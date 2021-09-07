@@ -1,6 +1,6 @@
 微信小程序通用项目模板——「提高效率，~~安心摸鱼~~专注于业务逻辑」
 
-模板特点：vant-weapp、自定义导航栏、自定 tabbar、自定义mixin混入、全局样式、请求接口二次封装（request.js）、枚举（emun.js）、添加地址模板三种方式（省市区联动、地图选点、智能识别）等等
+模板特点：vant-weapp、自定义导航栏、自定 tabbar、自定义mixin混入、全局样式、请求接口二次封装（request.js）、枚举（emun.js）、添加地址模板三种方式（省市区联动、地图选点、智能识别）、vant 转换像素单位（px 转 rpx , 需自己转换） 等等
 
 ## 项目启动
 
@@ -62,7 +62,8 @@ wx_template
 │  ├─ address-detail_2                                                 
 │  ├─ address-detail_3                                                 
 ├─ project.config.json          // 项目配置，对应小程序开发者工具，右侧的勾选项
-├─ sitemap.json                                                    
+├─ sitemap.json              
+├─ gulpfile.json                // gulpfile gulp的配置文件，用于搭配 postcss-pxtransform 转换 vant 像素单位                    
 └─ utils
    ├─ smartWeChat               // 智能识别地址                                                       
    ├─ authLogin.js              // 登录校验逻辑 
@@ -71,6 +72,48 @@ wx_template
    ├─ qqmap-wx-jssdk.min.js     // 腾讯地图 sdk
    ├─ smartWeChat               // 地址只能识别插件            
    └─ utils.js                  // 一些公用的工具函数、如果时间格式化、图片压缩等
+```
+
+## vant-weapp 转换像素单位 （px 转 rpx）
+假设你已经安装了`vant-weapp`, 并且已经 `npm 构建`，如果构建失败可以参考 —— [「微信官网」](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
+### 安装依赖
+```
+npm i  gulp gulp-postcss postcss-pxtransform -D
+```
+### 创建 gulp 配置信息 
+根目录里面已经创建好了 `gulpfile.js`，不用新建，但是有个地方需要注意，看清楚 `vant-weapp` 构建后的路径是否正确，如果不正确改成自己的就好
+```
+  //根据自己的 vant 构建路径来
+  return gulp.src(['miniprogram_npm/@vant/weapp/**/*.wxss']) 
+    .pipe(postcss(processors))
+    .pipe(gulp.dest('miniprogram_npm/@vant/weapp/'));
+```
+### 修改 node_modules/postcss-pxtransform/index.js 
+```
+// 默认设置 deviceRatio
+// const  deviceRatio = {
+//   640: 2.34 / 2,
+//   750: 1,
+//   828: 1.81 / 2
+// }
+
+const deviceRatio = {
+  640: 2.34,
+  750: 2,
+  828: 1.81
+}
+```
+
+### 添加 npm 脚本，并运行
+``` 
+// package.json（已配置）
+scripts": {
+    "build": "gulp css",
+  },
+```
+```
+// 运行 npm 脚本
+npm run build
 ```
 
 ## 项目相关文章：

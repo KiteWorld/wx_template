@@ -6,8 +6,13 @@
   "dependencies": {
     "@vant/weapp": "^1.6.8"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "postcss-pxtransform": "^3.3.5"
+  },
   "scripts": {
+    "build": "gulp css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
