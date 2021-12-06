@@ -1,6 +1,6 @@
 微信小程序通用项目模板——「提高效率，~~安心摸鱼~~专注于业务逻辑」
 
-模板特点：vant-weapp、自定义导航栏、自定 tabbar、自定义mixin混入、全局样式、请求接口二次封装（request.js）、枚举（emun.js）、添加地址模板三种方式（省市区联动、地图选点、智能识别）、vant 转换像素单位（px 转 rpx , 需自己转换） 等等
+模板特点：vant-weapp、自定义导航栏、自定 tabbar、自定义mixin混入、全局样式、请求接口二次封装（request.js）、枚举（emun.js）、toast二次封装（全局调用）、添加地址模板三种方式（省市区联动、地图选点、智能识别）、vant 转换像素单位（px 转 rpx , 需自己转换） 等等
 
 ## 项目启动
 
@@ -67,6 +67,7 @@ wx_template
 └─ utils
    ├─ smartWeChat               // 智能识别地址                                                       
    ├─ authLogin.js              // 登录校验逻辑 
+   ├─ app.js                    // app 相关的工具类，例如 toast 二次封装。  
    ├─ mixin.js                  // 使小程序页面也具备类似于 vue 的 mixin(混入) 功能
    ├─ request.js                // 请求的统一处理，例如：携带token、token校验、异常处理等
    ├─ qqmap-wx-jssdk.min.js     // 腾讯地图 sdk
