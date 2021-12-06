@@ -3,20 +3,35 @@ import {
   HTTP_OSS_URL
 } from "../config"
 
-// 格式化时间 YYYY-MM-DD hh:mm:ss
-const dateFomatter = (time, type = 'date') => {
-  let timeText = time.getFullYear() + "-" +
-    (time.getMonth() + 1).toString().padStart(2, "0") + "-" +
-    time.getDate().toString().padStart(2, "0") + ' ' +
-    time.getHours().toString().padStart(2, "0") + ":" +
-    time.getMinutes().toString().padStart(2, "0") + ":" +
-    time.getSeconds().toString().padStart(2, "0")
-  return timeText
+/**
+ * 对Date的扩展，将 Date 转化为指定格式的String
+ * 月(Y)、月(m)、日(d)、小时(H)、分(M)、秒(S) 可以用 1-2 个占位符，
+ * 例子：
+ * dateFormat('YYYY-mm-dd HH:MM:SS', new Date()) ==> 2020-01-01 08:00:00
+ */
 
+export const dateFormat = (date = new Date(), fmt = "YYYY-mm-dd") => {
+  const opt = {
+    "Y+": date.getFullYear().toString(), // 年
+    "m+": (date.getMonth() + 1).toString(), // 月
+    "d+": date.getDate().toString(), // 日
+    "H+": date.getHours().toString(), // 时
+    "M+": date.getMinutes().toString(), // 分
+    "S+": date.getSeconds().toString() // 秒
+    // 有其他格式化字符需求可以继续添加，必须转化成字符串
+  };
+  let ret
+  for (let k in opt) {
+    ret = new RegExp("(" + k + ")").exec(fmt)
+    if (ret) {
+      fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+    };
+  };
+  return fmt
 }
 
-// 获取当前年月日 YYYY-MM-DD
-const getNowTime = (time) => {
+// 获取年月日 YYYY-MM-DD
+const getDate = (time) => {
   return time.getFullYear() + "-" +
     (time.getMonth() + 1).toString().padStart(2, "0") + "-" +
     time.getDate().toString().padStart(2, "0")
@@ -36,14 +51,11 @@ const getDateList = (day) => {
 }
 
 // 今天往后的day后的天 ，并格式化 YYYY-MM-DD
-const getDate = (day) => {
+const getAfterDate = (day) => {
   let today = new Date();
-  let targetday_milliseconds = today.getTime() + 1000 * 60 * 60 * 24 * (day - today.getDate());
+  let targetday_milliseconds = today.getTime() + 1000 * 60 * 60 * 24 * day;
   today.setTime(targetday_milliseconds); //注意，这行是关键代码
-  const formatDate = today.getFullYear() + "-" +
-    (today.getMonth() + 1).toString().padStart(2, "0") + "-" +
-    today.getDate().toString().padStart(2, "0")
-  return formatDate
+  return getDate(today)
 }
 
 // 返回星期几
@@ -65,7 +77,7 @@ const getWeekList = (dataList) => {
   })
 }
 
-//压缩图片
+//压缩图片, 老方法，不建议使用。
 /*
   instance 为当前实例
   canvas  canvas DOM元素实例
@@ -113,6 +125,7 @@ const compressImage = async function (instance, canvas, canvasId, url, ratio = 0
   })
 }
 
+// 只接受单张图片上传
 const upload = async function (file, canvas, canvasId, fileType, success) {
   //只接受 jpg、gif、png 格式的文件,
   const acceptFileType = ['jpg', 'gif', 'png']
@@ -195,11 +208,11 @@ const debounce = (fn, wait, immediate = false) => {
 
 }
 module.exports = {
-  dateFomatter,
+  dateFormat,
   getDateList,
   getWeekList,
-  getNowTime,
   getDate,
+  getAfterDate,
   compressImage,
   upload,
   debounce

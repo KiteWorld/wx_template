@@ -4,7 +4,7 @@
 
   <!-- 搜索组件 -->
   <van-search value="{{ addressInput }}" shape="round" placeholder="请输入搜索关键词" use-left-icon-slot
-    bind:change="nearby_search">
+    bind:change="nearBySearch">
     <view class="cityName ellipsis_1" slot="left-icon" bindtap="toSelectCity">{{cityName}}</view>
   </van-search>
 
@@ -19,7 +19,7 @@
       </cover-view>
     </cover-view>
   </map>
-  
+
   <!-- 地点列表 -->
   <scroll-view class="scroll" bindscrolltolower="loadLocation" scroll-y lower-threshold="100">
     <view class="near-item" wx:for="{{nearList}}" wx:key="index" id="{{index}}" bindtap="chooseCenter">
@@ -31,4 +31,5 @@
       </view>
     </view>
   </scroll-view>
+
 </view>

@@ -1,0 +1,15 @@
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <navbar navConfig="{{navConfig}}" />
+  <recycle-view batch="{{batchSetRecycleData}}" id="recycleId" bindscrolltolower="scrollLower"
+    lower-threshold="{{200}}">
+    <view slot="before">长列表前面的内容</view>
+    <recycle-item wx:for="{{recycleList}}" wx:key="id">
+      <view style="height: {{itemHeight}}px;width: {{deviceWidth}}px;" class="huanhang">
+        <text>{{item.title}}</text>
+      </view>
+    </recycle-item>
+    <view slot="after">长列表后面的内容</view>
+  </recycle-view>
+
+</view>

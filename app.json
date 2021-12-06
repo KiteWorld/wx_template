@@ -6,7 +6,8 @@
     "pages/map/index",
     "pages/address-detail_1/index",
     "pages/address-detail_2/index",
-    "pages/address-detail_3/index"
+    "pages/address-detail_3/index",
+    "pages/recycle-list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,7 +21,8 @@
     "color": "#000000",
     "selectedColor": "#2c4999",
     "borderStyle": "white",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/index/index",
         "text": "首页"
       },

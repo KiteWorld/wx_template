@@ -5,8 +5,13 @@ import {
 } from "./common/globalMixin"
 import address_parse from "./utils/smartWeChat/js/address_parse"
 
+import {
+  toast
+} from "utils/app.js"
+
 App({
   onLaunch() {
+    wx.$toast = toast
     wx.getSystemInfo({
       success: (res) => {
         this.globalData.statusBarHeight = res.statusBarHeight
@@ -32,10 +37,7 @@ App({
       })
     });
     updateManager.onUpdateFailed(() => {
-      wx.showToast({
-        icon: "error",
-        title: "更新版本失败"
-      })
+      wx.$toast.error("更新版本失败")
     })
   },
   smart: function (val) {

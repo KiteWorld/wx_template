@@ -15,7 +15,7 @@
 </view>
 
 <view class="flex_r_v">
-  <text>演示导航栏，返回上页功能：</text>
+  <text>演示自定义导航栏，返回上页功能：</text>
   <navigator url="/pages/detail/index" class="btn">跳转到详细页</navigator>
 </view>
 <view class="flex_r_v">
@@ -34,6 +34,14 @@
 <view class="flex_r_v">
   <text>智能识别地址：</text>
   <navigator url="/pages/address-detail_3/index" class="btn">点击查看</navigator>
+</view>
+<view class="flex_r_v">
+  <text>Toast封装演示：</text>
+  <view bindtap="testToast" class="btn">点击测试</view>
+</view>
+<view class="flex_r_v">
+  <text>recycle-list(长列表性能优化时使用)：</text>
+  <navigator url="/pages/recycle-list/index" class="btn">点击查看</navigator>
 </view>
 
 <authorize type="{{authType}}" showAuth="{{showAuth}}" />

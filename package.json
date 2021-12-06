@@ -4,7 +4,8 @@
   "description": "wx_template",
   "main": "app.js",
   "dependencies": {
-    "@vant/weapp": "^1.6.8"
+    "@vant/weapp": "^1.6.8",
+    "miniprogram-recycle-view": "^0.1.5"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

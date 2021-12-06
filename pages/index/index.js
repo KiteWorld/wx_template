@@ -9,6 +9,7 @@ import {
   authLogin
 } from "../../utils/authLogin.js"
 
+
 Page({
   //局部 mixin
   mixins: [mixin2],
@@ -36,7 +37,7 @@ Page({
     })
     authLogin(this)
   },
-  onReady: function () { },
+  onReady: function () {},
   onShow: function () {
     //初始化tabbar  
     this.getTabBar().init()
@@ -45,5 +46,9 @@ Page({
   auth() {
     authLogin(this)
   },
+  testToast() {
+    // 挂在在 wx 全局对象上，方便调用，类似于 vue.propotype 。
+    wx.$toast.success("toast演示成功")
+  }
 
 })

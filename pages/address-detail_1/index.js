@@ -58,13 +58,13 @@ Page({
 
   confirmArea: function ({
     detail
-  }) {
+  }) { 
     this.setData({
       "formData.province": detail[0],
       "formData.city": detail[1],
       "formData.county": detail[2],
     })
-  },
+  }, 
 
   changeAddressDetail({
     detail

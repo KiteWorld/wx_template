@@ -41,6 +41,12 @@
           "pathName": "pages/address-detail_3/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/recycle-list/index",
+          "pathName": "pages/recycle-list/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

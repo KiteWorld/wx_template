@@ -64,13 +64,16 @@
             success: (res) => {
               wx.onLocationChange((location) => {
                 if (location) {
-                  wx.stopLocationUpdate()
                   const {
                     latitude,
                     longitude
-                  } = this.data
-                  if (latitude && longitude) return
-                  this.initLocation.call(this, location.latitude, location.longitude)
+                  } = location
+                  wx.stopLocationUpdate()
+                  this.setData({
+                    latitude,
+                    longitude
+                  })
+                  this.initLocation(latitude, longitude)
                 }
               })
             },
@@ -93,7 +96,7 @@
           })
           this.data.pageIndex = 1
           this.data.isDone = false
-          this.nearby_search()
+          this.nearBySearch()
         }
 
       },
@@ -122,7 +125,7 @@
               })
               this.data.pageIndex = 1
               this.data.isDone = false
-              this.nearby_search.call(this);
+              this.nearBySearch.call(this);
             }
           })
         }
@@ -153,8 +156,15 @@
         }
       },
 
-      nearby_search: function (e) {
-        if (e) this.data.keyword = e.detail
+      nearBySearch: function (e) {
+        if (e) {
+          this.setData({
+            keyword: e.detail,
+            pageIndex: 1,
+            nearList: [],
+            addressInput: e.detail
+          })
+        }
         wx.hideLoading();
         wx.showLoading({
           title: '加载中'
@@ -191,9 +201,6 @@
               pageIndex: pageIndex
             })
           },
-          fail: function (res) {
-            wx.hideLoading();
-          },
           complete: function (res) {
             wx.hideLoading();
           }
@@ -228,8 +235,8 @@
       initLocation: function (latitude, longitude) {
         qqmapsdk.reverseGeocoder({
           location: {
-            latitude: latitude,
-            longitude: longitude
+            latitude,
+            longitude
           },
           get_poi: 1,
           success: (res) => {
@@ -237,14 +244,15 @@
               latitude: latitude,
               longitude: longitude,
               keyword: this.data.defaultKeyword,
-              cityName: res.result.address_component.city
+              cityName: res.result.address_component.city,
+              pageIndex: 1,
+              addressInput: ""
             })
-            // 调用接口
-            this.nearby_search.call(this);
+            this.nearBySearch();
           },
         });
       },
       loadLocation() {
-        if (!this.data.isDone) this.nearby_search();
+        if (!this.data.isDone) this.nearBySearch();
       }
     })
