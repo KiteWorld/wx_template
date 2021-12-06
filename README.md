@@ -2,7 +2,7 @@
 
 模板特点：vant-weapp、自定义导航栏、自定 tabbar、自定义mixin混入、全局样式、请求接口二次封装（request.js）、枚举（emun.js）、toast二次封装（全局调用）、添加地址模板三种方式（省市区联动、地图选点、智能识别）、vant 转换像素单位（px 转 rpx , 需自己转换） 等等
 
-衍生项目项目：[「钉钉小程序通用模板」](https://github.com/KiteWorld/dingding_template)
+衍生项目：[「钉钉小程序通用模板」](https://github.com/KiteWorld/dingding_template)
 
 ## 项目启动
 
