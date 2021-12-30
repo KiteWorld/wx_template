@@ -1,12 +1,14 @@
-module.exports = {
-  //开发环境
-  HTTP_REQUEST_URL: 'https://kite1874.com/dev/api/',
+// "release" 正式版  "trial" 体验版 "develop" 开发版 
+const env = wx.getAccountInfoSync().miniProgram.envVersion
 
-  //测试环境
-  HTTP_REQUEST_URL: 'https://kite1874.com/api/',
-  
+const HTTP_REQUEST_URL = env === "release" ? "https://kite1874.com/api/" : env === "trial" ? "https://kite1874.com/test/api/" : "https://kite1874.com/dev/api/"
+
+module.exports = {
+  //请求接口地址，根URL
+  HTTP_REQUEST_URL,
+
   // 腾讯位置服务 Key
-  MAP_KEY:"VP4BZ-MPBCU-LQFVU-BXR22-CFNTS-WLFZN",
+  MAP_KEY: "VP4BZ-MPBCU-LQFVU-BXR22-CFNTS-WLFZN",
 
   // 请求头
   HEADER: {
